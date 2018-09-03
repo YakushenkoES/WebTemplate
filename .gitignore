@@ -1,6 +1,6 @@
 # My Exclude
 # Dependency directories
-node_modules/libs
+src/libs
 
 
 
