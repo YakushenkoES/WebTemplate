@@ -1,3 +1,8 @@
+# My Exclude
+# Dependency directories
+node_modules/libs
+
+
 
 # Created by https://www.gitignore.io/api/node,bower,windows,visualstudiocode
 
