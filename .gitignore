@@ -1,7 +1,7 @@
 # My Exclude
 # Dependency directories
 src/libs
-
+dist/*.*
 
 
 # Created by https://www.gitignore.io/api/node,bower,windows,visualstudiocode
