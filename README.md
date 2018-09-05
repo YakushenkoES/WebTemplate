@@ -18,5 +18,7 @@ This template let you
 
 ## Usage
 1. Run `cmd.exe` and change directory to project directory
-2. Run `gulp` for start watching process
+   - Run `gulp` for start watching process
+   - Run `gulp build` for prepare site files (to "dist" folder)
+
 
