@@ -12,8 +12,8 @@ This template let you
 2. Install [Node.js](https://nodejs.org/en/) (check "npm manager" and "Add to PATH")
 3. Install packages
    1. Run `cmd.exe` and change directory to project directory
-   2. Install "Gulp" globaly: `npm i gulp -g`
-   4. Install "Gulp" localy: `npm i gulp --save-dev`
+   2. Install "Gulp" globally: `npm i gulp -g`
+   4. Install "Gulp" locally: `npm i gulp --save-dev`
    3. Install packages: `npm install`
 
 ## Usage
