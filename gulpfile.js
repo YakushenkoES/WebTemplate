@@ -10,6 +10,26 @@ var imagemin = require('gulp-imagemin');
 var pngQuant = require('imagemin-pngquant');
 var cache = require('gulp-cache');
 var autoprefixer = require('gulp-autoprefixer');
+//var rigger = require("gulp-rigger");
+var fileinclude = require("gulp-file-include");
+
+
+// Сборка html
+gulp.task('html-rigger', function () {
+    gulp.src('src/html/*.html')
+        .pipe(rigger())
+        .pipe(gulp.dest('src'));
+});
+gulp.task('html', function () {
+    gulp.src('src/html/*.html')
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file',
+            indent: true
+        }))
+        .pipe(gulp.dest('src'));
+});
+
 
 gulp.task('sass', function(){
     return gulp.src('src/scss/**/*.scss') //'src/sass/**/*.sass' // ! - исключение из выборки // [!'src/sass/main.sass', 'src/sass/**/*.sass' ] массив (все кроме)     // + (sass/scss)
@@ -65,7 +85,8 @@ gulp.task('clear', function(){
 });
 
 // Следить за изменениями в файлах
-gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function(){
+gulp.task('watch', ['browser-sync', 'css-libs', 'scripts','html'], function(){
+    gulp.watch('src/html/**/*.html',['html']);
     gulp.watch('src/scss/**/*.scss',['sass']);
     gulp.watch('src/*.html', browserSync.reload);
     gulp.watch('src/js/**/*.js', browserSync.reload);
@@ -90,7 +111,7 @@ gulp.task('img', function(){
 
 
 // Сборка  
-gulp.task('build',['clean', 'img', 'sass', 'scripts'], function(){
+gulp.task('build',['clean', 'img', 'sass', 'scripts','html'], function(){
 
     var buildCss = gulp.src([
         'src/css/main.css',
